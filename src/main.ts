@@ -1,15 +1,13 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import './style.css'
 import App from './App.vue'
 import router from "./router/routes.ts";
 import './assets/tailwind.css';
-import {api} from "src/boot/axios.ts";
-import axios from "axios";
+import {registerBoot} from "src/boot";
 
 const app = createApp(App)
 
-app.config.globalProperties.$axios = axios
-app.config.globalProperties.$api = api
+registerBoot(app)
 
 app.use(router)
 app.mount('#app')
